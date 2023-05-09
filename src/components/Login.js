@@ -1,16 +1,26 @@
-import React, {useState} from 'react'
+import { useState } from "react";
+import FadeLoader from "react-spinners/FadeLoader";
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
+const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
+
 const Login = () => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const handle = async() => {
+        setLoading(true);
         console.log(name);
         console.log(password)
         let data = await axios.post('https://electionapp.onrender.com/auth/login', {
             name:name,
             password:password
         })
+        setLoading(false);
         if (data.data.success === true) {
             navigate('/home')
         }
@@ -45,6 +55,14 @@ const Login = () => {
           </div>
       </div>
   </div>
+  <FadeLoader
+  color="green"
+  loading={loading}
+  cssOverride={override}
+  size={100}
+  aria-label="Loading Spinner"
+  data-testid="loader"
+  />
 </section>
   )
 }

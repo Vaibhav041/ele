@@ -1,6 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import axios from "axios";
 import img from "../img.jpeg";
+import FadeLoader from "react-spinners/FadeLoader";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 const Home = () => {
   const [name, setName] = useState("x");
@@ -9,12 +16,16 @@ const Home = () => {
   const [booth, setBooth] = useState("x");
   const [showResults, setShowResults] = useState(false);
   const [results, setResults] = useState({});
+  const [loading, setLoading] = useState(false);
+
 
   
   const handle = async () => {
+    setLoading(true);
     let data = await axios.get(
       `https://electionapp.onrender.com/voter/get/${name}/${building}/${so}/${booth}`
     );
+    setLoading(false)
     console.log(data);
     setShowResults(true);
     setResults(data.data);
@@ -78,6 +89,14 @@ const Home = () => {
           </div>{" "}
         </>
       )}
+      <FadeLoader
+  color="green"
+  loading={loading}
+  cssOverride={override}
+  size={100}
+  aria-label="Loading Spinner"
+  data-testid="loader"
+  />
     </section>
   );
 };
