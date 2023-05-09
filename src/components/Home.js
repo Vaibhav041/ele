@@ -89,6 +89,7 @@ const Home = () => {
                   <p>Address: {item.building}</p>
                   <p>Father name: {item.fatherName}</p>
                   <p>Booth Number: {item.boothNumber}</p>
+                  <p>Serial number: {item.id}</p>
                 </div>
               );
             })}
