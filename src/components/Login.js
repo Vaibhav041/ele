@@ -22,6 +22,7 @@ const Login = () => {
         })
         setLoading(false);
         if (data.data.success === true) {
+            localStorage.setItem('logged', 'trkidbkasajfkavue')
             navigate('/home')
         }
     }
