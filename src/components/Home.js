@@ -21,32 +21,36 @@ const Home = () => {
   };
   return (
     <section className="flex flex-col h-screen bg-gray-200">
-      <div className="flex justify-center mt-5">
+      <div className="flex justify-center mt-2">
         <img className="w-[160px] h-[160px]" src={img} />
       </div>
-      <div className="input flex flex-col gap-1 px-32 my-10">
+      <div className="input flex flex-col gap-1 px-32 mb-10 mt-5">
         <input
           type="text"
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
+          className="p-1 rounded-lg"
         />
         <input
           type="text"
           onChange={(e) => setBuilding(e.target.value)}
           placeholder="Address"
+          className="p-1 rounded-lg"
         />
         <input
           type="text"
           onChange={(e) => setSo(e.target.value)}
           placeholder="S/O"
+          className="p-1 rounded-lg"
         />
         <input
           type="text"
           onChange={(e) => setBooth(e.target.value)}
           placeholder="Booth"
+          className="p-1 rounded-lg"
         />
         <button
-          className="bg-gradient-to-r from-orange-500 to-green-500 text-white rounded-md"
+          className="bg-gradient-to-r from-orange-500 to-green-500 mt-2 p-1 text-white rounded-xl"
           onClick={handle}
         >
           Search
