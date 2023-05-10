@@ -29,40 +29,39 @@ const Home = () => {
   const handle = async () => {
     setLoading(true);
     let data = await axios.get(
-      `https://electionapp.onrender.com/voter/get/${name}/${building}/${so}/${booth}`
+      `https://electionapp-92gq.onrender.com/voter/gett/${name}/${building}/${so}/${booth}`
     );
     setLoading(false);
-    console.log(data);
     setShowResults(true);
     setResults(data.data);
   };
   return (
     <section className="flex flex-col h-screen bg-gray-200">
       <div className="flex justify-center mt-2">
-        <img className="w-[160px] h-[160px]" src={img} />
+        <img className="w-[160px] h-[160px]" src={img} alt="#" />
       </div>
       <div className="input flex flex-col gap-1 px-32 mb-10 mt-5">
         <input
           type="text"
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName('*' +e.target.value)}
           placeholder="Name"
           className="p-1 rounded-lg"
         />
         <input
           type="text"
-          onChange={(e) => setBuilding(e.target.value)}
+          onChange={(e) => setBuilding('*' +e.target.value)}
           placeholder="Address"
           className="p-1 rounded-lg"
         />
         <input
           type="text"
-          onChange={(e) => setSo(e.target.value)}
+          onChange={(e) => setSo('*' +e.target.value)}
           placeholder="S/O"
           className="p-1 rounded-lg"
         />
         <input
           type="text"
-          onChange={(e) => setBooth(e.target.value)}
+          onChange={(e) => setBooth('*' +e.target.value)}
           placeholder="Booth"
           className="p-1 rounded-lg"
         />
