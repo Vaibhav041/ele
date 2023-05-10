@@ -16,7 +16,7 @@ const Login = () => {
         setLoading(true);
         console.log(name);
         console.log(password)
-        let data = await axios.post('https://electionapp.onrender.com/auth/login', {
+        let data = await axios.post('https://electionapp-92gq.onrender.com/auth/login', {
             name:name,
             password:password
         })
